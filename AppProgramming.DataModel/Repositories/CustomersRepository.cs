@@ -15,6 +15,58 @@ namespace AppProgramming.DataModel.Repositories
             this.connection.Open();
         }
 
+        public Customer GetRandomCustomer()
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.connection;
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText =
+                "SELECT top 1 percent " +
+                "Customers.FirstName, Customers.LastName, Customers.MothersName, Customers.CityID, Cities.Name, " +
+                "Customers.RFC, Customers.BirthDate, Customers.Gender, Customers.Email, Customers.PhoneNumber, " +
+                "Customers.Address1, Customers.Address2, Customers.CellNumber, Customers.BloodTypeID, BloodTypes.Title,  " +
+                "Customers.Smoke, Customers.Drink, Customers.PracticeSports, Customers.CustomerID, Customers.FullName, " +
+                "States.StateID, States.Name " +
+                "FROM Customers " +
+                "JOIN Cities ON Customers.CityID = Cities.CityID " +
+                "JOIN States ON Cities.StateID = States.StateID " +
+                "JOIN BloodTypes ON BloodTypes.BloodTypeID = Customers.BloodTypeID " +
+                "order by newid()";
+
+            var dataReader = command.ExecuteReader(System.Data.CommandBehavior.SingleRow);
+            dataReader.Read();
+
+            Customer customer = new Customer
+            {
+                FirstName = dataReader.GetString(0),
+                LastName = dataReader.GetString(1),
+                MothersName = dataReader.GetString(2),
+                CityID = dataReader.GetInt32(3),
+                CityName = dataReader.GetString(4),
+                RFC = dataReader.GetString(5),
+                BirthDate = dataReader.GetDateTime(6),
+                Gender = dataReader.GetString(7),
+                Email = dataReader.GetString(8),
+                PhoneNumber = dataReader.GetString(9),
+                Address1 = dataReader.GetString(10),
+                Address2 = dataReader.GetString(11),
+                CellNumber = dataReader.GetString(12),
+                BloodTypeID = dataReader.GetInt32(13),
+                BloodTypeTitle = dataReader.GetString(14),
+                Smoke = dataReader.GetInt32(15),
+                Drink = dataReader.GetInt32(16),
+                PracticeSports = dataReader.GetInt32(17),
+                CustomerID = dataReader.GetInt32(18),
+                FullName = dataReader.GetString(19),
+                StateID = dataReader.GetInt32(20),
+                StateName = dataReader.GetString(21)
+            };
+
+            dataReader.Close();
+
+            return customer;
+        }
+
         public Customer GetById(int id)
         {
             SqlCommand command = new SqlCommand();
@@ -115,6 +167,8 @@ namespace AppProgramming.DataModel.Repositories
 
                 items.Add(customer);
             }
+
+            dataReader.Close();
 
             return items;
         }

@@ -15,6 +15,20 @@ namespace AppProgramming.DataModel.Repositories
             this.connection.Open();
         }
 
+        public int GetRandomUserId()
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.connection;
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText =
+                "SELECT top 1 percent UserID FROM Users " +
+                "order by newid()";
+
+            int result = Convert.ToInt32(command.ExecuteScalar());
+
+            return result;
+        }
+
         public User FindUser(string userName, string password)
         {
             SqlCommand command = new SqlCommand();

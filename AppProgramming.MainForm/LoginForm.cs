@@ -46,6 +46,7 @@ namespace AppProgramming.MainForm
             }
 
             if (authenticadedUser != null)
+            //if(true)
             {
                 this.mainForm.CurrentUser = authenticadedUser;
                 this.DialogResult = System.Windows.Forms.DialogResult.OK;
