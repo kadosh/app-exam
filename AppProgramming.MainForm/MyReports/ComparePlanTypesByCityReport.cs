@@ -16,14 +16,14 @@ namespace AppProgramming.MainForm.MyReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CustomersReport : ReportClass {
+    public class ComparePlanTypesByCityReport : ReportClass {
         
-        public CustomersReport() {
+        public ComparePlanTypesByCityReport() {
         }
         
         public override string ResourceName {
             get {
-                return "CustomersReport.rpt";
+                return "ComparePlanTypesByCityReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace AppProgramming.MainForm.MyReports {
         
         public override string FullResourceName {
             get {
-                return "AppProgramming.MainForm.MyReports.CustomersReport.rpt";
+                return "AppProgramming.MainForm.MyReports.ComparePlanTypesByCityReport.rpt";
             }
             set {
                 // Do nothing
@@ -87,12 +87,20 @@ namespace AppProgramming.MainForm.MyReports {
                 return this.ReportDefinition.Sections[4];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Desde {
+            get {
+                return this.DataDefinition.ParameterFields[0];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCustomersReport : Component, ICachedReport {
+    public class CachedComparePlanTypesByCityReport : Component, ICachedReport {
         
-        public CachedCustomersReport() {
+        public CachedComparePlanTypesByCityReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +137,7 @@ namespace AppProgramming.MainForm.MyReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CustomersReport rpt = new CustomersReport();
+            ComparePlanTypesByCityReport rpt = new ComparePlanTypesByCityReport();
             rpt.Site = this.Site;
             return rpt;
         }

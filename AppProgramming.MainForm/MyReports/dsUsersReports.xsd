@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsUsersReports" targetNamespace="http://tempuri.org/dsUsersReports.xsd" xmlns:mstns="http://tempuri.org/dsUsersReports.xsd" xmlns="http://tempuri.org/dsUsersReports.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsUsersReports" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsUsersReports" msprop:Generator_UserDSName="dsUsersReports">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BestCommercialAssistants" msprop:Generator_TableClassName="BestCommercialAssistantsDataTable" msprop:Generator_TableVarName="tableBestCommercialAssistants" msprop:Generator_RowChangedName="BestCommercialAssistantsRowChanged" msprop:Generator_TablePropName="BestCommercialAssistants" msprop:Generator_RowDeletingName="BestCommercialAssistantsRowDeleting" msprop:Generator_RowChangingName="BestCommercialAssistantsRowChanging" msprop:Generator_RowEvHandlerName="BestCommercialAssistantsRowChangeEventHandler" msprop:Generator_RowDeletedName="BestCommercialAssistantsRowDeleted" msprop:Generator_RowClassName="BestCommercialAssistantsRow" msprop:Generator_UserTableName="BestCommercialAssistants" msprop:Generator_RowEvArgName="BestCommercialAssistantsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="FullName" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_UserColumnName="FullName" type="xs:string" minOccurs="0" />
+              <xs:element name="SimulationsCount" msprop:Generator_ColumnVarNameInTable="columnSimulationsCount" msprop:Generator_ColumnPropNameInRow="SimulationsCount" msprop:Generator_ColumnPropNameInTable="SimulationsCountColumn" msprop:Generator_UserColumnName="SimulationsCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ComparePlanTypesByCity" msprop:Generator_TableClassName="ComparePlanTypesByCityDataTable" msprop:Generator_TableVarName="tableComparePlanTypesByCity" msprop:Generator_RowChangedName="ComparePlanTypesByCityRowChanged" msprop:Generator_TablePropName="ComparePlanTypesByCity" msprop:Generator_RowDeletingName="ComparePlanTypesByCityRowDeleting" msprop:Generator_RowChangingName="ComparePlanTypesByCityRowChanging" msprop:Generator_RowEvHandlerName="ComparePlanTypesByCityRowChangeEventHandler" msprop:Generator_RowDeletedName="ComparePlanTypesByCityRowDeleted" msprop:Generator_RowClassName="ComparePlanTypesByCityRow" msprop:Generator_UserTableName="ComparePlanTypesByCity" msprop:Generator_RowEvArgName="ComparePlanTypesByCityRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CityName" msprop:Generator_ColumnVarNameInTable="columnCityName" msprop:Generator_ColumnPropNameInRow="CityName" msprop:Generator_ColumnPropNameInTable="CityNameColumn" msprop:Generator_UserColumnName="CityName" type="xs:string" minOccurs="0" />
+              <xs:element name="NormalPlan" msprop:Generator_ColumnVarNameInTable="columnNormalPlan" msprop:Generator_ColumnPropNameInRow="NormalPlan" msprop:Generator_ColumnPropNameInTable="NormalPlanColumn" msprop:Generator_UserColumnName="NormalPlan" type="xs:int" minOccurs="0" />
+              <xs:element name="PlusPlan" msprop:Generator_ColumnVarNameInTable="columnPlusPlan" msprop:Generator_ColumnPropNameInRow="PlusPlan" msprop:Generator_ColumnPropNameInTable="PlusPlanColumn" msprop:Generator_UserColumnName="PlusPlan" type="xs:int" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:int" minOccurs="0" />
+              <xs:element name="NormalPlanAvg" msprop:Generator_ColumnVarNameInTable="columnNormalPlanAvg" msprop:Generator_ColumnPropNameInRow="NormalPlanAvg" msprop:Generator_ColumnPropNameInTable="NormalPlanAvgColumn" msprop:Generator_UserColumnName="NormalPlanAvg" type="xs:double" minOccurs="0" />
+              <xs:element name="PlusPlanAvg" msprop:Generator_ColumnVarNameInTable="columnPlusPlanAvg" msprop:Generator_ColumnPropNameInRow="PlusPlanAvg" msprop:Generator_ColumnPropNameInTable="PlusPlanAvgColumn" msprop:Generator_UserColumnName="PlusPlanAvg" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

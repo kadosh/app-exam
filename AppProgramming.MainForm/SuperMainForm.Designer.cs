@@ -35,11 +35,13 @@
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusUserName = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.top10AsesoresConMásCotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipoDePlanElegidoPorCiudadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +88,9 @@
             // 
             // reportsMenuItem
             // 
+            this.reportsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.top10AsesoresConMásCotizacionesToolStripMenuItem,
+            this.tipoDePlanElegidoPorCiudadToolStripMenuItem});
             this.reportsMenuItem.Image = global::AppProgramming.MainForm.Resources.reports_32;
             this.reportsMenuItem.Name = "reportsMenuItem";
             this.reportsMenuItem.Size = new System.Drawing.Size(81, 20);
@@ -99,6 +104,13 @@
             this.salirToolStripMenuItem1.Size = new System.Drawing.Size(57, 20);
             this.salirToolStripMenuItem1.Text = "Salir";
             this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
+            // 
+            // cerrarSesiónToolStripMenuItem
+            // 
+            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -123,12 +135,19 @@
             this.toolStripStatusUserName.Size = new System.Drawing.Size(43, 17);
             this.toolStripStatusUserName.Text = "Admin";
             // 
-            // cerrarSesiónToolStripMenuItem
+            // top10AsesoresConMásCotizacionesToolStripMenuItem
             // 
-            this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
-            this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
-            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
+            this.top10AsesoresConMásCotizacionesToolStripMenuItem.Name = "top10AsesoresConMásCotizacionesToolStripMenuItem";
+            this.top10AsesoresConMásCotizacionesToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.top10AsesoresConMásCotizacionesToolStripMenuItem.Text = "Top 10 asesores con más cotizaciones";
+            this.top10AsesoresConMásCotizacionesToolStripMenuItem.Click += new System.EventHandler(this.top10AsesoresConMásCotizacionesToolStripMenuItem_Click);
+            // 
+            // tipoDePlanElegidoPorCiudadToolStripMenuItem
+            // 
+            this.tipoDePlanElegidoPorCiudadToolStripMenuItem.Name = "tipoDePlanElegidoPorCiudadToolStripMenuItem";
+            this.tipoDePlanElegidoPorCiudadToolStripMenuItem.Size = new System.Drawing.Size(273, 22);
+            this.tipoDePlanElegidoPorCiudadToolStripMenuItem.Text = "Tipo de plan elegido por ciudad";
+            this.tipoDePlanElegidoPorCiudadToolStripMenuItem.Click += new System.EventHandler(this.tipoDePlanElegidoPorCiudadToolStripMenuItem_Click);
             // 
             // SuperMainForm
             // 
@@ -167,6 +186,8 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusUserName;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem top10AsesoresConMásCotizacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tipoDePlanElegidoPorCiudadToolStripMenuItem;
     }
 }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using AppProgramming.DataModel.Models;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace AppProgramming.DataModel.Repositories
 {

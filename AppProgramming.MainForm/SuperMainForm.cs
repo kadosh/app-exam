@@ -1,5 +1,8 @@
-﻿using System;
+﻿using AppProgramming.DataModel.Repositories;
+using AppProgramming.MainForm.MyReports;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -105,7 +108,11 @@ namespace AppProgramming.MainForm
             {
                 Thread newThread = new Thread(showSplash);
                 newThread.Start();
+#if DEBUG
+                Thread.Sleep(5);
+#else
                 Thread.Sleep(5000);
+#endif
                 newThread.Abort();
             }
             else
@@ -208,10 +215,10 @@ namespace AppProgramming.MainForm
 
         private void reportesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            TryInitializeReports();
+            /*TryInitializeReports();
             _reportsForm.Show();
             _reportsForm.BringToFront();
-            closeAllDialogsExcept(_reportsForm);
+            closeAllDialogsExcept(_reportsForm);*/
         }
 
         private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -261,6 +268,86 @@ namespace AppProgramming.MainForm
                     Application.Exit();
                 }
             }
+        }
+
+        private void top10AsesoresConMásCotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dsUsersReports dataSet = new dsUsersReports();
+
+            DataSet ds = new DataSet();
+            using (var repo = new ReportsRepository())
+            {
+                ds = repo.GetBestCommecialAssistants();
+            }
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos");
+            }
+            else
+            {
+                foreach (DataRow row in ds.Tables["Result"].Rows)
+                {
+                    dataSet.BestCommercialAssistants.Rows.Add(
+                        string.Format(
+                            "{0} {1} {2}",
+                            row["FirstName"].ToString(),
+                            row["LastName"].ToString(),
+                            row["MothersName"].ToString()),
+                        row["SimulationsCount"].ToString()
+                        );
+                }
+            }
+
+            BestCommercialAssistantsReport report = new BestCommercialAssistantsReport();
+            report.SetDataSource((DataTable)dataSet.BestCommercialAssistants);
+
+            ReportDialog dialog = new ReportDialog(report);
+            dialog.ShowDialog();
+        }
+
+        private void tipoDePlanElegidoPorCiudadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dsUsersReports dataSet = new dsUsersReports();
+
+            DataSet ds = new DataSet();
+
+            using (var repo = new ReportsRepository())
+            {
+                ds = repo.GetComparePlanTypesByCity();
+            }
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos");
+            }
+            else
+            {
+                foreach (DataRow row in ds.Tables["Result"].Rows)
+                {
+                    double normalPlan = Convert.ToDouble(row["NormalPlan"]),
+                            plusPlan = Convert.ToDouble(row["PlusPlan"]),
+                            total = normalPlan + plusPlan;
+
+                    double normalPlanAvg = total > 0 ? normalPlan * 100 / total : 0;
+                    double plusPlanAvg = total > 0 ? plusPlan * 100 / total : 0;
+
+                    dataSet.ComparePlanTypesByCity.Rows.Add(
+                            row["CityName"].ToString(),
+                            row["NormalPlan"].ToString(),
+                            row["PlusPlan"].ToString(),
+                            total.ToString(),
+                            normalPlanAvg.ToString(),
+                            plusPlanAvg.ToString()
+                        );
+                }
+            }
+
+            ComparePlanTypesByCityReport report = new ComparePlanTypesByCityReport();
+            report.SetDataSource((DataTable)dataSet.ComparePlanTypesByCity);
+
+            ReportDialog dialog = new ReportDialog(report);
+            dialog.ShowDialog();
         }
     }
 }
