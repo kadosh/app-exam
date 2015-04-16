@@ -325,20 +325,12 @@ namespace AppProgramming.MainForm
             {
                 foreach (DataRow row in ds.Tables["Result"].Rows)
                 {
-                    double normalPlan = Convert.ToDouble(row["NormalPlan"]),
-                            plusPlan = Convert.ToDouble(row["PlusPlan"]),
-                            total = normalPlan + plusPlan;
-
-                    double normalPlanAvg = total > 0 ? normalPlan * 100 / total : 0;
-                    double plusPlanAvg = total > 0 ? plusPlan * 100 / total : 0;
-
                     dataSet.ComparePlanTypesByCity.Rows.Add(
                             row["CityName"].ToString(),
                             row["NormalPlan"].ToString(),
-                            row["PlusPlan"].ToString(),
-                            total.ToString(),
-                            normalPlanAvg.ToString(),
-                            plusPlanAvg.ToString()
+                            row["PlusPlan"].ToString()
+                        /*normalPlanAvg.ToString(),
+                        plusPlanAvg.ToString()*/
                         );
                 }
             }

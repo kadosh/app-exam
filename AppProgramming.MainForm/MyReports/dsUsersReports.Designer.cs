@@ -581,12 +581,6 @@ namespace AppProgramming.MainForm.MyReports {
             
             private global::System.Data.DataColumn columnPlusPlan;
             
-            private global::System.Data.DataColumn columnTotal;
-            
-            private global::System.Data.DataColumn columnNormalPlanAvg;
-            
-            private global::System.Data.DataColumn columnPlusPlanAvg;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ComparePlanTypesByCityDataTable() {
@@ -646,30 +640,6 @@ namespace AppProgramming.MainForm.MyReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TotalColumn {
-                get {
-                    return this.columnTotal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NormalPlanAvgColumn {
-                get {
-                    return this.columnNormalPlanAvg;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PlusPlanAvgColumn {
-                get {
-                    return this.columnPlusPlanAvg;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -705,15 +675,12 @@ namespace AppProgramming.MainForm.MyReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ComparePlanTypesByCityRow AddComparePlanTypesByCityRow(string CityName, int NormalPlan, int PlusPlan, int Total, double NormalPlanAvg, double PlusPlanAvg) {
+            public ComparePlanTypesByCityRow AddComparePlanTypesByCityRow(string CityName, int NormalPlan, int PlusPlan) {
                 ComparePlanTypesByCityRow rowComparePlanTypesByCityRow = ((ComparePlanTypesByCityRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CityName,
                         NormalPlan,
-                        PlusPlan,
-                        Total,
-                        NormalPlanAvg,
-                        PlusPlanAvg};
+                        PlusPlan};
                 rowComparePlanTypesByCityRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowComparePlanTypesByCityRow);
                 return rowComparePlanTypesByCityRow;
@@ -739,9 +706,6 @@ namespace AppProgramming.MainForm.MyReports {
                 this.columnCityName = base.Columns["CityName"];
                 this.columnNormalPlan = base.Columns["NormalPlan"];
                 this.columnPlusPlan = base.Columns["PlusPlan"];
-                this.columnTotal = base.Columns["Total"];
-                this.columnNormalPlanAvg = base.Columns["NormalPlanAvg"];
-                this.columnPlusPlanAvg = base.Columns["PlusPlanAvg"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -753,12 +717,6 @@ namespace AppProgramming.MainForm.MyReports {
                 base.Columns.Add(this.columnNormalPlan);
                 this.columnPlusPlan = new global::System.Data.DataColumn("PlusPlan", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPlusPlan);
-                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotal);
-                this.columnNormalPlanAvg = new global::System.Data.DataColumn("NormalPlanAvg", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNormalPlanAvg);
-                this.columnPlusPlanAvg = new global::System.Data.DataColumn("PlusPlanAvg", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPlusPlanAvg);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1021,55 +979,6 @@ namespace AppProgramming.MainForm.MyReports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Total {
-                get {
-                    try {
-                        return ((int)(this[this.tableComparePlanTypesByCity.TotalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'ComparePlanTypesByCity\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComparePlanTypesByCity.TotalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double NormalPlanAvg {
-                get {
-                    try {
-                        return ((double)(this[this.tableComparePlanTypesByCity.NormalPlanAvgColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NormalPlanAvg\' in table \'ComparePlanTypesByCity\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableComparePlanTypesByCity.NormalPlanAvgColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double PlusPlanAvg {
-                get {
-                    try {
-                        return ((double)(this[this.tableComparePlanTypesByCity.PlusPlanAvgColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PlusPlanAvg\' in table \'ComparePlanTypesByCity\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableComparePlanTypesByCity.PlusPlanAvgColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCityNameNull() {
                 return this.IsNull(this.tableComparePlanTypesByCity.CityNameColumn);
             }
@@ -1102,42 +1011,6 @@ namespace AppProgramming.MainForm.MyReports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPlusPlanNull() {
                 this[this.tableComparePlanTypesByCity.PlusPlanColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTotalNull() {
-                return this.IsNull(this.tableComparePlanTypesByCity.TotalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTotalNull() {
-                this[this.tableComparePlanTypesByCity.TotalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNormalPlanAvgNull() {
-                return this.IsNull(this.tableComparePlanTypesByCity.NormalPlanAvgColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNormalPlanAvgNull() {
-                this[this.tableComparePlanTypesByCity.NormalPlanAvgColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPlusPlanAvgNull() {
-                return this.IsNull(this.tableComparePlanTypesByCity.PlusPlanAvgColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPlusPlanAvgNull() {
-                this[this.tableComparePlanTypesByCity.PlusPlanAvgColumn] = global::System.Convert.DBNull;
             }
         }
         
