@@ -15,6 +15,35 @@ namespace AppProgramming.DataModel.Repositories
             this.connection.Open();
         }
 
+        public DataSet GetCustomersAnalysisByCity()
+        {
+            DataSet ds = new DataSet();
+
+            SqlCommand command = new SqlCommand();
+            command.Connection = this.connection;
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText =
+                "SELECT " +
+                    "Cities.Name AS CityName, " +
+                    "SUM(IIF(Customers.Gender = 'F', 1, 0)) AS Femenine, " +
+                    "SUM(IIF(Customers.Gender = 'M', 1, 0)) AS Masculine, " +
+                    "SUM(Customers.Smoke) AS Smokes, " +
+                    "SUM(Customers.Drink) AS Drinks, " +
+                    "SUM(Customers.PracticeSports) AS PracticeSports, " +
+                    "COUNT(*) AS TotalSimulations, " +
+                    "(SELECT COUNT(*) FROM Simulations) AS GlobalTotalSimulations " +
+                "FROM Simulations " +
+                    "JOIN Customers ON Simulations.CustomerID = Customers.CustomerID " +
+                    "JOIN Cities ON Customers.CityID = Cities.CityID " +
+                "GROUP BY Cities.Name";
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            adapter.Fill(ds, "Result");
+
+            return ds;
+        }
+
         public DataSet GetComparePlanTypesByCity()
         {
             DataSet ds = new DataSet();
@@ -24,7 +53,7 @@ namespace AppProgramming.DataModel.Repositories
             command.CommandType = System.Data.CommandType.Text;
             command.CommandText =
                 "SELECT Cities.Name AS CityName, " +
-                "(SELECT COUNT(*) FROM Simulations JOIN Customers ON Simulations.CustomerID = Customers.CustomerID WHERE Simulations.PlanTypeID = '1' AND Customers.CityID = Cities.CityID) AS [NormalPlan], "+
+                "(SELECT COUNT(*) FROM Simulations JOIN Customers ON Simulations.CustomerID = Customers.CustomerID WHERE Simulations.PlanTypeID = '1' AND Customers.CityID = Cities.CityID) AS [NormalPlan], " +
                 "(SELECT COUNT(*) FROM Simulations JOIN Customers ON Simulations.CustomerID = Customers.CustomerID WHERE Simulations.PlanTypeID = '2' AND Customers.CityID = Cities.CityID) AS [PlusPlan] " +
                 "FROM Cities";
 

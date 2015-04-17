@@ -109,7 +109,7 @@ namespace AppProgramming.MainForm
                 Thread newThread = new Thread(showSplash);
                 newThread.Start();
 #if DEBUG
-                Thread.Sleep(5);
+                Thread.Sleep(1000);
 #else
                 Thread.Sleep(5000);
 #endif
@@ -337,6 +337,45 @@ namespace AppProgramming.MainForm
 
             ComparePlanTypesByCityReport report = new ComparePlanTypesByCityReport();
             report.SetDataSource((DataTable)dataSet.ComparePlanTypesByCity);
+
+            ReportDialog dialog = new ReportDialog(report);
+            dialog.ShowDialog();
+        }
+
+        private void análisisDeClientesPorCiudadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dsUsersReports dataSet = new dsUsersReports();
+
+            DataSet ds = new DataSet();
+
+            using (var repo = new ReportsRepository())
+            {
+                ds = repo.GetCustomersAnalysisByCity();
+            }
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos");
+            }
+            else
+            {
+                foreach (DataRow row in ds.Tables["Result"].Rows)
+                {
+                    dataSet.CustomerAnalysisByCity.Rows.Add(
+                            row["CityName"].ToString(),
+                            row["Femenine"].ToString(),
+                            row["Masculine"].ToString(),
+                            row["Smokes"].ToString(),
+                            row["Drinks"].ToString(),
+                            row["PracticeSports"].ToString(),
+                            row["TotalSimulations"].ToString(),
+                            row["GlobalTotalSimulations"].ToString()
+                        );
+                }
+            }
+
+            CustomerSnapshotByCityReport report = new CustomerSnapshotByCityReport();
+            report.SetDataSource((DataTable)dataSet.CustomerAnalysisByCity);
 
             ReportDialog dialog = new ReportDialog(report);
             dialog.ShowDialog();

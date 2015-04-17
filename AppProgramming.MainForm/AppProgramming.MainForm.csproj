@@ -83,6 +83,12 @@
     <Compile Include="Budgets.Designer.cs">
       <DependentUpon>Budgets.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyReports\CustomerSnapshotByCityReport.cs">
+      <DependentUpon>CustomerSnapshotByCityReport.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="MyReports\ComparePlanTypesByCityReport.cs">
       <DependentUpon>ComparePlanTypesByCityReport.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -191,6 +197,10 @@
     <Compile Include="Validations\ManualCalledValidations.cs" />
     <EmbeddedResource Include="Budgets.resx">
       <DependentUpon>Budgets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyReports\CustomerSnapshotByCityReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CustomerSnapshotByCityReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="MyReports\ComparePlanTypesByCityReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
